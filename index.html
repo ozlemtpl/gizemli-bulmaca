@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizemli Programlama Bulmacası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mini Programlama Bulmacası</h1>
+    <p>Bu Python kodunda bir hata var. Onu düzelterek gizli mesajı bul!</p>
+    
+    <textarea id="code">
+def gizli_mesaj():
+    sifre = "Zbyr. Fbv 3 fnyg!"
+    return sifre.shift(-3)  # Hata burada!
+    
+print(gizli_mesaj())
+    </textarea>
+    <br>
+    <button onclick="checkCode()">Çalıştır</button>
+    <p id="result"></p>
+
+    <script>
+        function checkCode() {
+            let userCode = document.getElementById("code").value;
+            
+            if (userCode.includes(".shift(-3)")) {
+                document.getElementById("result").innerText = "Hata! Python'da shift fonksiyonu yok. Doğru yöntemi bul!";
+            } else if (userCode.includes("caesar_cipher") || userCode.includes("chr")) {
+                document.getElementById("result").innerText = "Tebrikler! Gizli mesaj: 'Wow. Bu 3 adım!'";
+            } else {
+                document.getElementById("result").innerText = "Kod hala hatalı! Düzeltmeyi dene!";
+            }
+        }
+    </script>
+</body>
+</html>
